@@ -10,10 +10,108 @@
 <body ng-app="reviewsApp">
 
 <div class="container">
-    <div data-ng-controller="RatingsController">
+    <div class="title">
+        <h1>Customer Reviews</h1>
+    </div>
 
+    <div ng-controller="RatingsController">
+        <!-- this is where the ratings json will be pulled into -->
+    </div>
+
+    <div ng-controller="ReviewsController">
+        <!-- this is where the reviews json will be pulled into -->
     </div>
 </div>
+
+<!--<section class="cust_reviews-container">
+	<header class="reviews_heading-container">
+		<h2 class="reviews_heading">Customer Reviews</h2>
+	</header>
+	<div class="model_and-ratings group">
+		<div class="model_title col span-6">
+			<h3 class="reviews_sub-heading">{{vehicle model}}</h3>
+		</div>
+		<div class="model_stars col span-6">
+			<form action="#" method="post">
+				<fieldset>
+					<input type="radio" name="ratings" id="ratings-Unwatchable" value="Unwatchable" />
+					<label for="ratings-Unwatchable">Unwatchable</label>
+
+					<input type="radio" name="ratings" id="ratings-Bad" value="Bad" />
+					<label for="ratings-Bad">Bad</label>
+
+					<input type="radio" name="ratings" id="ratings-OK" value="OK" />
+					<label for="ratings-OK">OK</label>
+
+					<input type="radio" name="ratings" id="ratings-Good" value="Good" checked="" />
+					<label for="ratings-Good">Good</label>
+
+					<input type="radio" name="ratings" id="ratings-Oscar-worthy" value="Oscar-worthy" />
+					<label for="ratings-Oscar-worthy">Oscar-worthy</label>
+
+					<input type="submit" id="submit-ratings" value="Rate this" class="rating-submit" />
+				</fieldset>
+			</form>
+			<div class="ave_rating">
+				<p>4.1 Average customer rating</p>
+				<p>20 reviews</p>
+			</div>
+		</div>
+	</div>
+
+	<div class="sort group">
+		<form action="" id="sort">
+			<fieldset>
+				<label for="sort_order">Sort</label>
+				<select name="" id="sort_order">
+					<option value="">value placeholder</option>
+					<option value="">value placeholder</option>
+					<option value="">value placeholder</option>
+					<option value="">value placeholder</option>
+					<option value="">value placeholder</option>
+				</select>
+			</fieldset>
+		</form>
+	</div>
+	<div id="reviews_container" class="module">
+		<div class="module review">
+			<div class="labels">
+				<ul class="group span-5">
+					<li class="span-4 col">Mr Screen Name</li>
+					<li class="span-4 col">User Location</li>
+					<li class="span-4 col">17th January 2014</li>
+				</ul>
+			</div>
+			<div class="car_details">
+				<p><span>Driving : </span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, voluptas, accusamus, ipsa quam alias debitis perspiciatis!</p>
+			</div>
+			<div class="group module">
+				<form action="#" method="post">
+					<fieldset>
+						<input type="radio" name="reviews" id="reviews-Unwatchable" value="Unwatchable" />
+						<label for="reviews-Unwatchable">Unwatchable</label>
+
+						<input type="radio" name="reviews" id="reviews-Bad" value="Bad" />
+						<label for="reviews-Bad">Bad</label>
+
+						<input type="radio" name="reviews" id="reviews-OK" value="OK" checked="" />
+						<label for="reviews-OK">OK</label>
+
+						<input type="radio" name="reviews" id="reviews-Good" value="Good" />
+						<label for="reviews-Good">Good</label>
+
+						<input type="radio" name="reviews" id="reviews-Oscar-worthy" value="Oscar-worthy" />
+						<label for="reviews-Oscar-worthy">Oscar-worthy</label>
+					</fieldset>
+				</form>
+			</div>
+			<div class="review_comments">
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, vitae laboriosam fugit et ad eius quae sed saepe alias iste officiis cum odit doloremque impedit voluptatum repellat illum quidem itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, obcaecati, harum, recusandae assumenda ducimus quae cumque cum amet quo fugiat ipsam ullam in fuga reprehenderit dolores eaque quas maiores quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, repellendus voluptate quo amet facilis similique magnam itaque facere quasi voluptatibus ex magni sint repudiandae nam earum cupiditate impedit officia quod.
+			</div>
+		</div>
+	</div>
+</section>-->
+
 
 <!-- ratings component -->
 <!--<li ng-repeat="Star in [1,2,3,4,5]">-->
@@ -45,6 +143,8 @@
 <script src="lib/angular/angular-route.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/RatingsController.js"></script>
+<script src="js/controllers/ReviewsController.js"></script>
 <script src="js/services/ReviewData.js"></script>
+<script src="js/services/RatingsData.js"></script>
 </body>
 </html>
