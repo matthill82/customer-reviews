@@ -3,4 +3,4 @@
 // Declare app level module which depends on filters, and services
 var custReviewApp =  angular.module('custReviewApp', []);
 
-var starRatings = angular.module('starRatings', []);
+//var starRatings = angular.module('starRatings', []);
