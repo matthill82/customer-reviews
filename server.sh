@@ -1,2 +1,2 @@
 cd app
-node ..\scripts\web-server.js
+sudo /usr/local/bin/node ../scripts/web-server.js
