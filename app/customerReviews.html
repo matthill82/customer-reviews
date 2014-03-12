@@ -4,24 +4,57 @@
     <meta charset="utf-8">
     <title>Customer Reviews</title>
     <link rel="stylesheet" href="css/normalize.css"/>
-    <link rel="stylesheet" href="css/foundation.min.css"/>
+    <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
 
-<div class="container">
-    <div class="title">
-        <h1>Customer Reviews</h1>
-    </div>
+    <div class="row">
+        <!--customer reviews title-->
+        <header class="title large-12 section-container">
+            <h1>
+                Customer Reviews
+            </h1>
+        </header>
+        <!--model title-->
+        <div class="large-12 section-container">
+            <h2 class="large-6 small-6">
+                Ford Fiesta
+            </h2>
+            <div class="large-6 small-6 column">
+                <ul>
+                    <li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">
+                        <input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="drop-down">
+                <select name="" id="">
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                    <option value=""></option>
+                </select>
+            </div>
+        </div>
 
-    <div ng-controller="RatingsController">
-        <!-- this is where the ratings json will be pulled into -->
-    </div>
 
-    <div ng-controller="ReviewsController">
-        <!-- this is where the reviews json will be pulled into -->
+        <div class="section-container">
+            <div ng-controller="RatingsController" class="section">
+                <p>{{ratings}}</p>
+                <!-- this is where the ratings json will be pulled into -->
+            </div>
+        </div>
+
+        <div class="section-container">
+            <div ng-controller="ReviewsController" class="section">
+                <p>{{reviews}}</p>
+                <!-- this is where the ratings json will be pulled into -->
+            </div>
+        </div>
+
     </div>
-</div>
 
 <!--<section class="cust_reviews-container">
 	<header class="reviews_heading-container">

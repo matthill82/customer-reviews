@@ -1,4 +1,5 @@
-reviewsApp.factory('ratingsData', function ($http) {
+// ratings service
+reviewsApp.service('ratingData', function ($http) {
 	return {
 		getRatings : function (successcb) {
 			$http({method : 'GET', url : 'json/RatingsData.json' }).

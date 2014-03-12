@@ -8,3 +8,15 @@ reviewsApp.controller('RatingsController',
 		});
 	}
 );
+
+function makeUrl ( url,pagename,params ) {
+	url+='?pagename='+pagename;
+	for (var param in params) {
+		if (params.hasOwnProperty(param)) {
+			console.log(params[param]);
+			console.log(params);
+			url+='&'+param+'='+params[param];
+		}
+	}
+	return url;
+}
