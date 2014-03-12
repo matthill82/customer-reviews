@@ -157,6 +157,8 @@
                 var inputType = $('input[type=submit]');
                 inputType.click(function() {
                     $('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
+                    /* val = Math.round(val * 4) / 4; /* To round to nearest quarter */
+                    /* val = Math.round(val * 2) / 2; /* To round to nearest half */
                     $('span.stars').stars();
                 });
                 inputType.click();
