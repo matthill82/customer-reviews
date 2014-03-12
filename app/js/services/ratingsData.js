@@ -1,6 +1,6 @@
 reviewsApp.factory('ratingsData', function ($http) {
 	return {
-		getEvent : function (successcb) {
+		getRatings : function (successcb) {
 			$http({method : 'GET', url : 'json/RatingsData.json' }).
 				success(function (data, status, headers, config) {
 					successcb(data);
