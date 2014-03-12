@@ -9,82 +9,77 @@
 </head>
 <body>
 
-    <div class="row">
-        <!--customer reviews title-->
-        <header class="title large-12 section-container">
-            <h1>
-                Customer Reviews
-            </h1>
-        </header>
-        <!--model title-->
-        <div class="large-12 section-container">
-            <h2 class="large-6 small-6">
-                Ford Fiesta
-            </h2>
-            <div class="large-6 small-6 column">
-                <ul>
-                    <li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">
-                        <input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>
-                    </li>
-                </ul>
-            </div>
-            <div class="drop-down">
-                <select name="" id="">
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                </select>
-            </div>
-        </div>
+    <!--<div class="row">-->
+        <!--&lt;!&ndash;customer reviews title&ndash;&gt;-->
+        <!--<header class="title large-12 section-container">-->
+            <!--<h1>-->
+                <!--Customer Reviews-->
+            <!--</h1>-->
+        <!--</header>-->
+        <!--&lt;!&ndash;model title&ndash;&gt;-->
+        <!--<div class="large-12 section-container">-->
+            <!--<h2 class="large-6 small-6">-->
+                <!--Ford Fiesta-->
+            <!--</h2>-->
+            <!--<div class="large-6 small-6 column">-->
+                <!--<ul>-->
+                    <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
+                        <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
+                    <!--</li>-->
+                <!--</ul>-->
+            <!--</div>-->
+
+            <!--<div class="drop-down">-->
+                <!--<select name="" id="">-->
+                    <!--<option value=""></option>-->
+                    <!--<option value=""></option>-->
+                    <!--<option value=""></option>-->
+                    <!--<option value=""></option>-->
+                    <!--<option value=""></option>-->
+                <!--</select>-->
+            <!--</div>-->
+        <!--</div>-->
 
 
-        <div class="section-container">
-            <div ng-controller="RatingsController" class="section">
-                <p>{{ratings}}</p>
-                <!-- this is where the ratings json will be pulled into -->
-            </div>
-        </div>
+        <!--<div class="section-container">-->
+            <!--<div ng-controller="RatingsController" class="section">-->
+                <!--<p>{{ratings}}</p>-->
+                <!--&lt;!&ndash; this is where the ratings json will be pulled into &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
 
-        <div class="section-container">
-            <div ng-controller="ReviewsController" class="section">
-                <p>{{reviews}}</p>
-                <!-- this is where the ratings json will be pulled into -->
-            </div>
-        </div>
+        <!--<div class="section-container">-->
+            <!--<div ng-controller="ReviewsController" class="section">-->
+                <!--<p>{{reviews}}</p>-->
+                <!--&lt;!&ndash; this is where the ratings json will be pulled into &ndash;&gt;-->
+            <!--</div>-->
+        <!--</div>-->
 
-    </div>
+    <!--</div>-->
 
-<!--<section class="cust_reviews-container">
+<section class="cust_reviews-container">
 	<header class="reviews_heading-container">
 		<h2 class="reviews_heading">Customer Reviews</h2>
 	</header>
 	<div class="model_and-ratings group">
 		<div class="model_title col span-6">
-			<h3 class="reviews_sub-heading">{{vehicle model}}</h3>
+			<h3 class="reviews_sub-heading">Ford Fiesta</h3>
 		</div>
 		<div class="model_stars col span-6">
-			<form action="#" method="post">
-				<fieldset>
-					<input type="radio" name="ratings" id="ratings-Unwatchable" value="Unwatchable" />
-					<label for="ratings-Unwatchable">Unwatchable</label>
-
-					<input type="radio" name="ratings" id="ratings-Bad" value="Bad" />
-					<label for="ratings-Bad">Bad</label>
-
-					<input type="radio" name="ratings" id="ratings-OK" value="OK" />
-					<label for="ratings-OK">OK</label>
-
-					<input type="radio" name="ratings" id="ratings-Good" value="Good" checked="" />
-					<label for="ratings-Good">Good</label>
-
-					<input type="radio" name="ratings" id="ratings-Oscar-worthy" value="Oscar-worthy" />
-					<label for="ratings-Oscar-worthy">Oscar-worthy</label>
-
-					<input type="submit" id="submit-ratings" value="Rate this" class="rating-submit" />
-				</fieldset>
-			</form>
+            <p class="stars">
+            <span>
+                <a class="star-05" href="#">0.5</a>
+                <a class="star-10" href="#">1</a>
+                <a class="star-15" href="#">1.5</a>
+                <a class="star-20" href="#">2</a>
+                <a class="star-25" href="#">2.5</a>
+                <a class="star-30" href="#">3</a>
+                <a class="star-35" href="#">3.5</a>
+                <a class="star-40 active" href="#">4</a>
+                <a class="star-45" href="#">4.5</a>
+                <a class="star-50" href="#">5</a>
+            </span>
+            </p>
 			<div class="ave_rating">
 				<p>4.1 Average customer rating</p>
 				<p>20 reviews</p>
@@ -92,7 +87,7 @@
 		</div>
 	</div>
 
-	<div class="sort group">
+	<div class="sort group ">
 		<form action="" id="sort">
 			<fieldset>
 				<label for="sort_order">Sort</label>
@@ -118,52 +113,29 @@
 			<div class="car_details">
 				<p><span>Driving : </span> Lorem ipsum dolor sit amet, consectetur adipisicing elit, voluptas, accusamus, ipsa quam alias debitis perspiciatis!</p>
 			</div>
-			<div class="group module">
-				<form action="#" method="post">
-					<fieldset>
-						<input type="radio" name="reviews" id="reviews-Unwatchable" value="Unwatchable" />
-						<label for="reviews-Unwatchable">Unwatchable</label>
-
-						<input type="radio" name="reviews" id="reviews-Bad" value="Bad" />
-						<label for="reviews-Bad">Bad</label>
-
-						<input type="radio" name="reviews" id="reviews-OK" value="OK" checked="" />
-						<label for="reviews-OK">OK</label>
-
-						<input type="radio" name="reviews" id="reviews-Good" value="Good" />
-						<label for="reviews-Good">Good</label>
-
-						<input type="radio" name="reviews" id="reviews-Oscar-worthy" value="Oscar-worthy" />
-						<label for="reviews-Oscar-worthy">Oscar-worthy</label>
-					</fieldset>
-				</form>
-			</div>
-			<div class="review_comments">
+            <div class="model_stars span-12 clearfix">
+                <p class="stars">
+                    <span>
+                        <a class="star-05" href="#">0.5</a>
+                        <a class="star-10" href="#">1</a>
+                        <a class="star-15" href="#">1.5</a>
+                        <a class="star-20" href="#">2</a>
+                        <a class="star-25" href="#">2.5</a>
+                        <a class="star-30" href="#">3</a>
+                        <a class="star-35 active" href="#">3.5</a>
+                        <a class="star-40" href="#">4</a>
+                        <a class="star-45" href="#">4.5</a>
+                        <a class="star-50" href="#">5</a>
+                    </span>
+                </p>
+            </div>
+			<div class="review_comments span-12">
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, vitae laboriosam fugit et ad eius quae sed saepe alias iste officiis cum odit doloremque impedit voluptatum repellat illum quidem itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, obcaecati, harum, recusandae assumenda ducimus quae cumque cum amet quo fugiat ipsam ullam in fuga reprehenderit dolores eaque quas maiores quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, repellendus voluptate quo amet facilis similique magnam itaque facere quasi voluptatibus ex magni sint repudiandae nam earum cupiditate impedit officia quod.
 			</div>
 		</div>
 	</div>
-</section>-->
+</section>
 
-
-<!-- ratings component -->
-<!--<li ng-repeat="Star in [1,2,3,4,5]">-->
-    <!--<div ng-switch="store.Rating >= Star">-->
-        <!--<div ng-switch-when="true">-->
-            <!--<img src="~/img/" class="star" />-->
-        <!--</div>-->
-        <!--<div ng-switch-when="false">-->
-            <!--<div ng-switch="store.Rating > (Star-1)">-->
-                <!--<div ng-switch-when="true">-->
-                    <!--<img src="~/img/" class="star" />-->
-                <!--</div>-->
-                <!--<div ng-switch-when="false">-->
-                    <!--<img src="~/img/" class="star" />-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-<!--</li>-->
 
 
 <!-- In production use:
@@ -179,5 +151,19 @@
 <script src="js/controllers/ReviewsController.js"></script>
 <script src="js/services/ReviewsData.js"></script>
 <script src="js/services/RatingsData.js"></script>
+    <script>
+        (function(){
+            var stars = $('p.stars a');
+            stars.each(function (index) {
+                console.log(index);
+            });
+
+//            $("p.stars > span > a").on('click',function(){
+//                $("p.stars > span > a").removeClass("active");
+//                $(this).addClass("active");
+//                $("#result").html($(this).html());
+//            });
+        })($);
+    </script>
 </body>
 </html>
