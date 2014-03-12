@@ -80,6 +80,7 @@
                 <a class="star-50" href="#">5</a>
             </span>
             </p>
+            <p><span class="starsRating"><span>&NonBreakingSpace;;</span></span></p>
 			<div class="ave_rating">
 				<p>4.1 Average customer rating</p>
 				<p>20 reviews</p>
@@ -153,14 +154,12 @@
 <script src="js/services/RatingsData.js"></script>
     <script>
         (function(){
-            $(function() {
                 var inputType = $('input[type=submit]');
                 inputType.click(function() {
                     $('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
                     $('span.stars').stars();
                 });
                 inputType.click();
-            });
 
             $.fn.stars = function() {
                 return $(this).each(function() {

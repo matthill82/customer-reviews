@@ -510,3 +510,15 @@ p.stars span a.star-50:hover, p.stars span a.star-50.active, p.stars span a.star
 {
     background:url(../img/star-active.png) repeat-x center right;
 }
+
+
+span.starsRating, span.starsRating span {
+    display: block;
+    background: url(../img/stars.png) 0 -16px repeat-x;
+    width: 80px;
+    height: 16px;
+}
+
+span.starsRating span {
+    background-position: 0 0;
+}
