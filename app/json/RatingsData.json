@@ -1,0 +1,104 @@
+{"data": {
+  "returncode": 0,
+  "surveySummaryRecords": [
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "BMAX13",
+    "CumCustomersSentCount": "236",
+    "CumulativeAvg": "4.59",
+    "CumCustomersReceivedCount": "20",
+    "Model": "B-MAX"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "CMAX13",
+    "CumCustomersSentCount": "300",
+    "CumulativeAvg": "4.48",
+    "CumCustomersReceivedCount": "23",
+    "Model": "C-MAX"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "FIESTAST13",
+    "CumCustomersSentCount": "18",
+    "CumulativeAvg": "5",
+    "CumCustomersReceivedCount": "2",
+    "Model": "FIESTA"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "FIESTA13",
+    "CumCustomersSentCount": "199",
+    "CumulativeAvg": "4.25",
+    "CumCustomersReceivedCount": "13",
+    "Model": "FIESTA"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "FOCUS13",
+    "CumCustomersSentCount": "189",
+    "CumulativeAvg": "4.29",
+    "CumCustomersReceivedCount": "14",
+    "Model": "FOCUS"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "GALAXY13",
+    "CumCustomersSentCount": "79",
+    "CumulativeAvg": "3.6",
+    "CumCustomersReceivedCount": "6",
+    "Model": "GALAXY"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "KA13",
+    "CumCustomersSentCount": "439",
+    "CumulativeAvg": "4.36",
+    "CumCustomersReceivedCount": "15",
+    "Model": "KA"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "KUGA13",
+    "CumCustomersSentCount": "222",
+    "CumulativeAvg": "4.5",
+    "CumCustomersReceivedCount": "19",
+    "Model": "KUGA"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "MONDEO13",
+    "CumCustomersSentCount": "59",
+    "CumulativeAvg": "5",
+    "CumCustomersReceivedCount": "3",
+    "Model": "MONDEO"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "RANGER13",
+    "CumCustomersSentCount": "13",
+    "CumulativeAvg": "4",
+    "CumCustomersReceivedCount": "1",
+    "Model": "RANGER"
+   },
+   {
+    "LastSurveyId": "1402",
+    "Market": "GBR",
+    "SpecificModel": "SMAX13",
+    "CumCustomersSentCount": "220",
+    "CumulativeAvg": "4.82",
+    "CumCustomersReceivedCount": "13",
+    "Model": "S-MAX"
+   }
+  ]
+ }}
