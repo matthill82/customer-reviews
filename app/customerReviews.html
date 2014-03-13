@@ -77,28 +77,28 @@
         </div>
     </div>
 	<div id="reviews_container" class="module">
-		<div ng-controller="ReviewsController" class="module review">
+		<div ng-each="model in event.ModelRecords" ng-controller="ReviewsController" class="module review">
 			<div class="labels">
 				<ul class="group span-5">
                     <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
                     <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
                     <!--</li>-->
-					<li class="col">Mr Screen Name</li>
-					<li class="col">User Location</li>
-					<li class="col">17th January 2014</li>
+					<li class="col">{{model.username}}</li>
+					<li class="col">{{model.UserLocation}}</li>
+					<li class="col">{{model.ReviewdateTimestamp}}</li>
 				</ul>
 			</div>
 			<div class="car_details">
-				<p><span>Driving : </span> Vehicle will be here</p>
+				<p><span>Driving : </span> {{model.Model}}</p>
 			</div>
             <div class="model_stars span-12 clearfix">
-                <input type="hidden" name="amount" value="3.2">
+                <input type="hidden" name="amount" value="{{model.UserOverallRating}}">
                 <input type="submit" value="update" class="hide">
                 <p class="star_container--reviews reviews_stars"><span class="starsRating"><span style="width: 40.48px;"></span></span></p>
             </div>
 			<div class="review_comments span-12">
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, vitae laboriosam fugit et ad eius quae sed saepe alias iste officiis cum odit doloremque impedit voluptatum repellat illum quidem itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, obcaecati, harum, recusandae assumenda ducimus quae cumque cum amet quo fugiat ipsam ullam in fuga reprehenderit dolores eaque quas maiores quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, repellendus voluptate quo amet facilis similique magnam itaque facere quasi voluptatibus ex magni sint repudiandae nam earum cupiditate impedit officia quod.</p>
-			</div>
+                <p>{{model.UserComments}}</p>
+            </div>
 		</div>
 	</div>
     <div class="module container disclaimer">
