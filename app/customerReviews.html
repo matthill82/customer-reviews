@@ -29,18 +29,6 @@
                 <!--</ul>-->
             <!--</div>-->
 
-            <!--<div class="drop-down">-->
-                <!--<select name="" id="">-->
-                    <!--<option value=""></option>-->
-                    <!--<option value=""></option>-->
-                    <!--<option value=""></option>-->
-                    <!--<option value=""></option>-->
-                    <!--<option value=""></option>-->
-                <!--</select>-->
-            <!--</div>-->
-        <!--</div>-->
-
-
         <!--<div class="section-container">-->
             <!--<div ng-controller="RatingsController" class="section">-->
                 <!--<p>{{ratings}}</p>-->
@@ -63,78 +51,68 @@
 	</header>
 	<div class="model_and-ratings group">
 		<div class="model_title col span-6">
-			<h3 class="reviews_sub-heading">Ford Fiesta</h3>
+			<h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
 		</div>
-		<div class="model_stars col span-6">
-            <p class="stars">
-            <span>
-                <a class="star-05" href="#">0.5</a>
-                <a class="star-10" href="#">1</a>
-                <a class="star-15" href="#">1.5</a>
-                <a class="star-20" href="#">2</a>
-                <a class="star-25" href="#">2.5</a>
-                <a class="star-30" href="#">3</a>
-                <a class="star-35" href="#">3.5</a>
-                <a class="star-40 active" href="#">4</a>
-                <a class="star-45" href="#">4.5</a>
-                <a class="star-50" href="#">5</a>
-            </span>
-            </p>
-            <p><span class="starsRating"><span>&NonBreakingSpace;;</span></span></p>
+		<div ng-controller="RatingsController" class="model_stars col span-6">
+            <input type="hidden" name="amount" value="4.1">
+            <input type="submit" value="update" class="hide">
+            <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span></span></span></p>
+
 			<div class="ave_rating">
 				<p>4.1 Average customer rating</p>
 				<p>20 reviews</p>
 			</div>
 		</div>
 	</div>
-
-	<div class="sort group ">
-		<form action="" id="sort">
-			<fieldset>
-				<label for="sort_order">Sort</label>
-				<select name="" id="sort_order">
-					<option value="">value placeholder</option>
-					<option value="">value placeholder</option>
-					<option value="">value placeholder</option>
-					<option value="">value placeholder</option>
-					<option value="">value placeholder</option>
-				</select>
-			</fieldset>
-		</form>
-	</div>
+    <div ng-controller="SortingController" class="sort clearfix">
+        <label for="sortOptions" class="pull-left">Sort</label>
+        <div class="custom-select">
+            <span class="selector icon-arrow-down"></span>
+            <select id="sortOptions" name="sortOrder">
+                <option selected="" value="recent"> Most recent </option>
+                <option value="oldest"> Oldest </option>
+                <option value="lowest"> Lowest score </option>
+                <option value="highest"> Highest </option>
+            </select>
+        </div>
+    </div>
 	<div id="reviews_container" class="module">
-		<div class="module review">
+		<div ng-controller="ReviewsController" class="module review">
 			<div class="labels">
 				<ul class="group span-5">
-					<li class="span-4 col">Mr Screen Name</li>
-					<li class="span-4 col">User Location</li>
-					<li class="span-4 col">17th January 2014</li>
+                    <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
+                    <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
+                    <!--</li>-->
+					<li class="col">Mr Screen Name</li>
+					<li class="col">User Location</li>
+					<li class="col">17th January 2014</li>
 				</ul>
 			</div>
 			<div class="car_details">
 				<p><span>Driving : </span> Vehicle will be here</p>
 			</div>
             <div class="model_stars span-12 clearfix">
-                <p class="stars">
-                    <span>
-                        <a class="star-05" href="#">0.5</a>
-                        <a class="star-10" href="#">1</a>
-                        <a class="star-15" href="#">1.5</a>
-                        <a class="star-20" href="#">2</a>
-                        <a class="star-25" href="#">2.5</a>
-                        <a class="star-30" href="#">3</a>
-                        <a class="star-35 active" href="#">3.5</a>
-                        <a class="star-40" href="#">4</a>
-                        <a class="star-45" href="#">4.5</a>
-                        <a class="star-50" href="#">5</a>
-                    </span>
-                </p>
+                <input type="hidden" name="amount" value="3.2">
+                <input type="submit" value="update" class="hide">
+                <p class="star_container--reviews reviews_stars"><span class="starsRating"><span style="width: 40.48px;"></span></span></p>
             </div>
 			<div class="review_comments span-12">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, vitae laboriosam fugit et ad eius quae sed saepe alias iste officiis cum odit doloremque impedit voluptatum repellat illum quidem itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, obcaecati, harum, recusandae assumenda ducimus quae cumque cum amet quo fugiat ipsam ullam in fuga reprehenderit dolores eaque quas maiores quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, repellendus voluptate quo amet facilis similique magnam itaque facere quasi voluptatibus ex magni sint repudiandae nam earum cupiditate impedit officia quod.
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, vitae laboriosam fugit et ad eius quae sed saepe alias iste officiis cum odit doloremque impedit voluptatum repellat illum quidem itaque. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse, obcaecati, harum, recusandae assumenda ducimus quae cumque cum amet quo fugiat ipsam ullam in fuga reprehenderit dolores eaque quas maiores quibusdam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, repellendus voluptate quo amet facilis similique magnam itaque facere quasi voluptatibus ex magni sint repudiandae nam earum cupiditate impedit officia quod.</p>
 			</div>
 		</div>
 	</div>
+    <div class="module container disclaimer">
+        <div class="row group">
+            <div class="large-12 columns">
+                <div class="large-8 centered__content container">
+                    <p class="text-center">Showing n of z customer reviews</p>
+                </div>
+                <div class="large-4 centered__content">
+                    <input type="button" value="READ MORE REVIEWS" ng-click="" class="custom-button blue" />
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 <!-- In production use:
@@ -150,23 +128,20 @@
 <script src="js/controllers/ReviewsController.js"></script>
 <script src="js/services/ReviewsData.js"></script>
 <script src="js/services/RatingsData.js"></script>
-    <script>
-        (function(){
-                var inputType = $('input[type=submit]');
-                inputType.click(function() {
-                    $('p').html('<span class="stars">'+parseFloat($('input[name=amount]').val())+'</span>');
-                    /* val = Math.round(val * 4) / 4; /* To round to nearest quarter */
-                    /* val = Math.round(val * 2) / 2; /* To round to nearest half */
-                    $('span.stars').stars();
-                });
-                inputType.click();
+<script>
+    $(function() {
+        $('input[type=submit]').click(function() {
+            $('p.star_container').html('<span class="starsRating">'+parseFloat($('input[name=amount]').val())+'</span>');
+            $('span.starsRating').stars();
+        });
+        $('input[type=submit]').click();
+    });
 
-            $.fn.stars = function() {
-                return $(this).each(function() {
-                    $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 16));
-                });
-            }
-        })($);
-    </script>
+    $.fn.stars = function() {
+        return $(this).each(function() {
+            $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 46)); /* 46 is the width of the stars image */
+        });
+    }
+</script>
 </body>
 </html>
