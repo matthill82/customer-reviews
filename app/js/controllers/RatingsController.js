@@ -1,7 +1,7 @@
 'use strict';
 
-eventsApp.controller('EventController',
-    function EventController($scope, eventData) {
+reviewsApp.controller('RatingsController',
+    function RatingsController($scope, eventData) {
         $scope.sortorder = 'name';
         eventData.getRatings().then(
             function(event) {$scope.event = event; },
@@ -9,15 +9,3 @@ eventsApp.controller('EventController',
         );
     }
 );
-
-//function makeUrl ( url,pagename,params ) {
-//	url+='?pagename='+pagename;
-//	for (var param in params) {
-//		if (params.hasOwnProperty(param)) {
-//			console.log(params[param]);
-//			console.log(params);
-//			url+='&'+param+'='+params[param];
-//		}
-//	}
-//	return url;
-//}

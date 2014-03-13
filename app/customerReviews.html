@@ -8,114 +8,81 @@
     <link rel="stylesheet" href="css/app.css"/>
 </head>
 <body>
-
-    <!--<div class="row">-->
-        <!--&lt;!&ndash;customer reviews title&ndash;&gt;-->
-        <!--<header class="title large-12 section-container">-->
-            <!--<h1>-->
-                <!--Customer Reviews-->
-            <!--</h1>-->
-        <!--</header>-->
-        <!--&lt;!&ndash;model title&ndash;&gt;-->
-        <!--<div class="large-12 section-container">-->
-            <!--<h2 class="large-6 small-6">-->
-                <!--Ford Fiesta-->
-            <!--</h2>-->
-            <!--<div class="large-6 small-6 column">-->
-                <!--<ul>-->
-                    <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
-                        <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
-                    <!--</li>-->
-                <!--</ul>-->
-            <!--</div>-->
-
-        <!--<div class="section-container">-->
-            <!--<div ng-controller="RatingsController" class="section">-->
-                <!--<p>{{ratings}}</p>-->
-                <!--&lt;!&ndash; this is where the ratings json will be pulled into &ndash;&gt;-->
-            <!--</div>-->
-        <!--</div>-->
-
-        <!--<div class="section-container">-->
-            <!--<div ng-controller="ReviewsController" class="section">-->
-                <!--<p>{{reviews}}</p>-->
-                <!--&lt;!&ndash; this is where the ratings json will be pulled into &ndash;&gt;-->
-            <!--</div>-->
-        <!--</div>-->
-
-    <!--</div>-->
-
-<section class="cust_reviews-container">
-	<header class="reviews_heading-container">
-		<h2 class="reviews_heading">Customer Reviews</h2>
-	</header>
-	<div class="model_and-ratings group">
-		<div class="model_title col span-6">
-			<h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
-		</div>
-		<div ng-controller="RatingsController" class="model_stars col span-6">
-            <input type="hidden" name="amount" value="4.1">
-            <input type="submit" value="update" class="hide">
-            <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span></span></span></p>
-
-			<div class="ave_rating">
-				<p>4.1 Average customer rating</p>
-				<p>20 reviews</p>
-			</div>
-		</div>
-	</div>
-    <div ng-controller="SortingController" class="sort clearfix">
-        <label for="sortOptions" class="pull-left">Sort</label>
-        <div class="custom-select">
-            <span class="selector icon-arrow-down"></span>
-            <select id="sortOptions" name="sortOrder">
-                <!--<option value="{{sort}}" ng-each="sort in sortby">{{sort}}</option>-->
-                <option selected="" value="recent"> Most recent </option>
-                <option value="oldest"> Oldest </option>
-                <option value="lowest"> Lowest score </option>
-                <option value="highest"> Highest </option>
-            </select>
-        </div>
-    </div>
-	<div id="reviews_container" class="module">
-		<div ng-each="model in event.ModelRecords" ng-controller="ReviewsController" class="module review">
-			<div class="labels">
-				<ul class="group span-5">
-                    <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
-                    <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
-                    <!--</li>-->
-					<li class="col">{{model.username}}</li>
-					<li class="col">{{model.UserLocation}}</li>
-					<li class="col">{{model.ReviewdateTimestamp}}</li>
-				</ul>
-			</div>
-			<div class="car_details">
-				<p><span>Driving : </span> {{model.Model}}</p>
-			</div>
-            <div class="model_stars span-12 clearfix">
-                <input type="hidden" name="amount" value="{{model.UserOverallRating}}">
+<div class="row">
+    <section class="cust_reviews-container">
+        <header class="reviews_heading-container">
+            <h2 class="reviews_heading">Customer Reviews</h2>
+        </header>
+        <div class="model_and-ratings group">
+            <div class="model_title col span-6">
+                <h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
+            </div>
+            <div ng-controller="RatingsController" class="model_stars col span-6">
+                <input type="hidden" name="amount" value="4.1">
+                <!--<input type="hidden" name="amount" value="{{ratings.CumulativeAvg}}">-->
                 <input type="submit" value="update" class="hide">
-                <p class="star_container--reviews reviews_stars"><span class="starsRating"><span style="width: 40.48px;"></span></span></p>
-            </div>
-			<div class="review_comments span-12">
-                <p>{{model.UserComments}}</p>
-            </div>
-		</div>
-	</div>
-    <div class="module container disclaimer">
-        <div class="row group">
-            <div class="large-12 columns">
-                <div class="large-8 centered__content container">
-                    <p class="text-center">Showing n of z customer reviews</p>
-                </div>
-                <div class="large-4 centered__content">
-                    <input type="button" value="READ MORE REVIEWS" ng-click="" class="custom-button blue" />
+                <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span></span></span></p>
+
+                <div class="ave_rating">
+                    <!--<p>{{ratings.CumulativeAvg}} Average customer rating</p>-->
+                    <p>4.1 Average customer rating</p>
+                    <!--<p>{{ratings.CumCustomersReceivedCount}} reviews</p>-->
+                    <p>20 reviews</p>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-
+        <div ng-controller="SortingController" class="sort clearfix">
+            <label for="sortOptions" class="pull-left">Sort</label>
+            <div class="custom-select">
+                <span class="selector icon-arrow-down"></span>
+                <select id="sortOptions" name="sortOrder">
+                    <!--<option value="{{sort}}" ng-each="sort in sortby">{{sort}}</option>-->
+                    <option selected="" value="recent"> Most recent </option>
+                    <option value="oldest"> Oldest </option>
+                    <option value="lowest"> Lowest score </option>
+                    <option value="highest"> Highest </option>
+                </select>
+            </div>
+        </div>
+        <div id="reviews_container" class="module">
+            <div ng-each="model in event.ModelRecords" ng-controller="ReviewsController" class="module review">
+                <div class="labels">
+                    <ul class="group span-5">
+                        <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
+                        <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
+                        <!--</li>-->
+                        <li class="col">{{model.username}}</li>
+                        <li class="col">{{model.UserLocation}}</li>
+                        <li class="col">{{model.ReviewdateTimestamp}}</li>
+                    </ul>
+                </div>
+                <div class="car_details">
+                    <p><span>Driving : </span> {{model.Model}}</p>
+                </div>
+                <div class="model_stars span-12 clearfix">
+                    <input type="hidden" name="amount" value="{{model.UserOverallRating}}">
+                    <input type="submit" value="update" class="hide">
+                    <p class="star_container--reviews reviews_stars"><span class="starsRating"><span style="width: 40.48px;"></span></span></p>
+                </div>
+                <div class="review_comments span-12">
+                    <p>{{model.UserComments}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="module container disclaimer">
+            <div class="row group">
+                <div class="large-12 columns">
+                    <div class="large-8 centered__content container">
+                        <p class="text-center">Showing n of z customer reviews</p>
+                    </div>
+                    <div class="large-4 centered__content">
+                        <input type="button" value="READ MORE REVIEWS" ng-click="" class="custom-button blue" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
 <!-- In production use:
 <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.2/angular.min.js"></script>
 -->
