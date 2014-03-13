@@ -1,4 +1,4 @@
-// ratings service
+/* ratings service
 reviewsApp.service('ratingData', function ($http) {
 	return {
 		getRatings : function (successcb) {
@@ -11,4 +11,23 @@ reviewsApp.service('ratingData', function ($http) {
 				});
 		}
 	};
+});
+*/
+
+// grab the http request, pass in the vehicleCode param
+reviewsApp.factory('ratingData', function($http, $q) {
+    return {
+        getRatings: function(vehicleCode) {
+            var deferred = $q.defer();
+
+            $http({method: 'GET', url: '/json/RatingsData', vehicleCode : vehicleCode}).
+                success(function(data, status, headers, config) {
+                    deferred.resolve(data);
+                }).
+                error(function(data, status, headers, config) {
+                    deferred.reject(status);
+                });
+            return deferred.promise;
+        }
+    };
 });
