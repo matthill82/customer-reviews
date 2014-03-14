@@ -9,6 +9,14 @@
 </head>
 <body>
 <div class="row">
+
+<!--<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"-->
+ <!--width="48px" height="96px" viewBox="0 -231.5 251 471.5" enable-background="new 0 -231.5 251 471.5" xml:space="preserve">-->
+<!--<title>Five Pointed Star</title>-->
+<!--<path fill="none" stroke="#452968" d="M125,5l30,85h90l-70,55l25,85l-75-50l-75,50l25-85L5,90h90L125,5z"/>-->
+<!--<path fill="#425968" stroke="#000000" d="M125-226l30,85h90l-70,55l25,85l-75-50L50-1l25-85L5-141h90L125-226z"/>-->
+<!--</svg>-->
+
     <section class="cust_reviews-container">
         <header class="reviews_heading-container">
             <h2 class="reviews_heading">Customer Reviews</h2>
@@ -18,25 +26,21 @@
                 <h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
             </div>
             <div ng-controller="RatingsController" class="model_stars col span-6">
-                <input type="hidden" name="amount" value="4.1">
-                <!--<input type="hidden" name="amount" value="{{ratings.CumulativeAvg}}">-->
+                <input type="hidden" name="amount" ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
                 <input type="submit" value="update" class="hide">
                 <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span></span></span></p>
-
                 <div class="ave_rating">
-                    <!--<p>{{ratings.CumulativeAvg}} Average customer rating</p>-->
-                    <p>4.1 Average customer rating</p>
-                    <!--<p>{{ratings.CumCustomersReceivedCount}} reviews</p>-->
-                    <p>20 reviews</p>
+                    <p>{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
+                    <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
                 </div>
             </div>
         </div>
-        <div ng-controller="SortingController" class="sort clearfix">
+        <div ng-controller="SortController" class="sort clearfix">
             <label for="sortOptions" class="pull-left">Sort</label>
             <div class="custom-select">
                 <span class="selector icon-arrow-down"></span>
                 <select id="sortOptions" name="sortOrder">
-                    <!--<option value="{{sort}}" ng-each="sort in sortby">{{sort}}</option>-->
+                    <option value="{{event.sortby}}" ng-repeat="sortb in event.sortby">{{event.sortby}}</option>
                     <option selected="" value="recent"> Most recent </option>
                     <option value="oldest"> Oldest </option>
                     <option value="lowest"> Lowest score </option>
@@ -44,28 +48,28 @@
                 </select>
             </div>
         </div>
-        <div id="reviews_container" class="module">
-            <div ng-each="model in event.ModelRecords" ng-controller="ReviewsController" class="module review">
+        <div id="reviews_container" ng-controller="ReviewsController" class="module">
+            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords"class="module review">
                 <div class="labels">
                     <ul class="group span-5">
-                        <!--<li ng-repeat="star in ratings.stars" class="rating" ng-class="{true: 'star-empty', false: 'star-active'}[star.empty]">-->
-                        <!--<input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>-->
-                        <!--</li>-->
-                        <li class="col">{{model.username}}</li>
-                        <li class="col">{{model.UserLocation}}</li>
-                        <li class="col">{{model.ReviewdateTimestamp}}</li>
+                        <li ng-repeat="star in reviews.stars" class="rating">
+                        <input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>
+                        </li>
+                        <li class="col">{{modelRecord.username}}</li>
+                        <li class="col">{{modelRecord.UserLocation}}</li>
+                        <li class="col">{{modelRecord.ReviewdateTimestamp}}</li>
                     </ul>
                 </div>
                 <div class="car_details">
-                    <p><span>Driving : </span> {{model.Model}}</p>
+                    <p><span>Driving : </span> {{modelRecord.Model}}</p>
                 </div>
                 <div class="model_stars span-12 clearfix">
-                    <input type="hidden" name="amount" value="{{model.UserOverallRating}}">
+                    <input type="hidden" name="amount" value="{{modelRecord.UserOverallRating}}">
                     <input type="submit" value="update" class="hide">
-                    <p class="star_container--reviews reviews_stars"><span class="starsRating"><span style="width: 40.48px;"></span></span></p>
+                    <p class="star_container--reviews reviews_stars"><span class="starsRating"><span></span></span></p>
                 </div>
                 <div class="review_comments span-12">
-                    <p>{{model.UserComments}}</p>
+                    <p>{{modelRecord.UserComments}}</p>
                 </div>
             </div>
         </div>
@@ -94,8 +98,10 @@
 <script src="js/app.js"></script>
 <script src="js/controllers/RatingsController.js"></script>
 <script src="js/controllers/ReviewsController.js"></script>
+<script src="js/controllers/SortController.js"></script>
 <script src="js/services/ReviewsData.js"></script>
 <script src="js/services/RatingsData.js"></script>
+<script src="js/services/SortData.js"></script>
 <script>
     $(function() {
         $('input[type=submit]').click(function() {
@@ -107,7 +113,7 @@
 
     $.fn.stars = function() {
         return $(this).each(function() {
-            $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 46)); /* 46 is the width of the stars image */
+            $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 60)); /* 49 is the width of the stars image */
         });
     }
 </script>
