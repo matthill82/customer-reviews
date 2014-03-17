@@ -25,15 +25,17 @@
             <div class="model_title col span-6">
                 <h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
             </div>
+            <!--RatingsController-->
             <div ng-controller="RatingsController" class="model_stars col span-6">
-                <input type="hidden" name="amount" ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
+                <input type="hidden" name="amount" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
                 <input type="submit" value="update" class="hide">
-                <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span></span></span></p>
+                <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span style="width:{{event.data.surveySummaryRecords.CumulativeAvg}}px;"></span></span></p>
                 <div class="ave_rating">
                     <p>{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
                     <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
                 </div>
             </div>
+            <!--end RatingsController-->
         </div>
         <div ng-controller="SortController" class="sort clearfix">
             <label for="sortOptions" class="pull-left">Sort</label>
@@ -77,10 +79,10 @@
             <div class="row group">
                 <div class="large-12 columns">
                     <div class="large-8 centered__content container">
-                        <p class="text-center">Showing n of z customer reviews</p>
+                        <p class="text-center">Showing 10 of X customer reviews</p>
                     </div>
                     <div class="large-4 centered__content">
-                        <input type="button" value="READ MORE REVIEWS" ng-click="" class="custom-button blue" />
+                        <input type="button" value="READ MORE REVIEWS" ng-click="revealMore();" class="custom-button blue" />
                     </div>
                 </div>
             </div>
@@ -95,13 +97,16 @@
 <script src="lib/vendor/foundation.min.js"></script>
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>
+<script src="lib/angular/angular-animate.min.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/RatingsController.js"></script>
 <script src="js/controllers/ReviewsController.js"></script>
 <script src="js/controllers/SortController.js"></script>
+<script src="js/controllers/AnimateController.js"></script>
 <script src="js/services/ReviewsData.js"></script>
 <script src="js/services/RatingsData.js"></script>
 <script src="js/services/SortData.js"></script>
+<script src="js/directives/directives.js"></script>
 <script>
 
     jQuery(document).ready(function ($) {

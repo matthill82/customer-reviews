@@ -26,3 +26,15 @@ reviewsApp.directive('starRating', function(){
 	};
 });
 
+reviewsApp.directive('showRating', function($animate) {
+	return function(scope, element, attrs) {
+		scope.$watch(attrs.showRating, function(starValue, ratingVal) {
+			if(ratingVal) {
+				console.info(ratingVal);
+			} else {
+				console.info(ratingVal);
+			}
+		})
+	}
+});
+
