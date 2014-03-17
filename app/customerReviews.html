@@ -103,13 +103,26 @@
 <script src="js/services/RatingsData.js"></script>
 <script src="js/services/SortData.js"></script>
 <script>
-    $(function() {
-        $('input[type=submit]').click(function() {
-            $('p.star_container').html('<span class="starsRating">'+parseFloat($('input[name=amount]').val())+'</span>');
-            $('span.starsRating').stars();
-        });
-        $('input[type=submit]').click();
+
+    jQuery(document).ready(function ($) {
+        // Code using $ as usual goes here.
+        var val, rating;
+        val = $('input[name=amount]').val();
+        rating = parseFloat(val);
+        console.log(val);
     });
+
+
+
+
+
+//    $(function() {
+//        $('input[type=submit]').click(function() {
+//            $('p.star_container').html('<span class="starsRating">'+parseFloat($('input[name=amount]').val())+'</span>');
+//            $('span.starsRating').stars();
+//        });
+//        $('input[type=submit]').click();
+//    });
 
     $.fn.stars = function() {
         return $(this).each(function() {
