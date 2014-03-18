@@ -13,20 +13,24 @@ reviewsApp.factory('ratingData', function ($http) {
 	};
 });
 
-// grab the http request, pass in the vehicleCode param
-//reviewsApp.factory('ratingData', function($http, $q) {
-//    return {
-//	    getRatings: function(vehicleCode) {
-//            var deferred = $q.defer();
-//
-//            $http({method: 'GET', url: '/json/RatingsData', vehicleCode : vehicleCode}).
-//                success(function(data, status, headers, config) {
-//                    deferred.resolve(data);
-//                }).
-//                error(function(data, status, headers, config) {
-//                    deferred.reject(status);
-//                });
-//            return deferred.promise;
+// this will be the live service
+//reviewsApp.factory('reviewsService', function($http) {
+//        var rrpbUrl = '';
+//        var runrRequest = function(username, path) {
+//// Return the promise from the $http service
+//// that calls the RRP API using JSONP
+//            return $http({
+//                method: 'JSONP',
+//                url: rrpbUrl + '/users/' +
+//                    username + '/' +
+//                    path + '?callback=JSON_CALLBACK'
+//            });
 //        }
-//    };
-//});
+//// Return the service object with a single function
+//// events
+//        return {
+//            events: function(username) {
+//                return runRequest(username, 'events');
+//            }
+//        };
+//    });

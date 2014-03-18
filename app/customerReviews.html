@@ -10,13 +10,6 @@
 <body>
 <div class="row">
 
-<!--<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"-->
- <!--width="48px" height="96px" viewBox="0 -231.5 251 471.5" enable-background="new 0 -231.5 251 471.5" xml:space="preserve">-->
-<!--<title>Five Pointed Star</title>-->
-<!--<path fill="none" stroke="#452968" d="M125,5l30,85h90l-70,55l25,85l-75-50l-75,50l25-85L5,90h90L125,5z"/>-->
-<!--<path fill="#425968" stroke="#000000" d="M125-226l30,85h90l-70,55l25,85l-75-50L50-1l25-85L5-141h90L125-226z"/>-->
-<!--</svg>-->
-
     <section class="cust_reviews-container">
         <header class="reviews_heading-container">
             <h2 class="reviews_heading">Customer Reviews</h2>
@@ -27,7 +20,7 @@
             </div>
             <!--RatingsController-->
             <div ng-controller="RatingsController" class="model_stars col span-6">
-                <input type="hidden" name="amount" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
+                <input animate ng-model="" type="hidden" name="amount" ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
                 <input type="submit" value="update" class="hide">
                 <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span style="width:{{event.data.surveySummaryRecords.CumulativeAvg}}px;"></span></span></p>
                 <div class="ave_rating">
@@ -51,7 +44,7 @@
             </div>
         </div>
         <div id="reviews_container" ng-controller="ReviewsController" class="module">
-            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords"class="module review">
+            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords | orderBy : 'UserOverallRating' | limitTo:10"class="module review">
                 <div class="labels">
                     <ul class="group span-5">
                         <li ng-repeat="star in reviews.stars" class="rating">
@@ -59,7 +52,7 @@
                         </li>
                         <li class="col">{{modelRecord.username}}</li>
                         <li class="col">{{modelRecord.UserLocation}}</li>
-                        <li class="col">{{modelRecord.ReviewdateTimestamp}}</li>
+                        <li class="col">{{modelRecord.ReviewdateTimestamp | limitTo: 10 | date:'MMM d, y'}}</li>
                     </ul>
                 </div>
                 <div class="car_details">
@@ -109,25 +102,13 @@
 <script src="js/directives/directives.js"></script>
 <script>
 
-    jQuery(document).ready(function ($) {
-        // Code using $ as usual goes here.
-        var val, rating;
-        val = $('input[name=amount]').val();
-        rating = parseFloat(val);
-        console.log(val);
+    $(function() {
+        $('input[type=submit]').click(function() {
+            $('p.star_container').html('<span class="starsRating">'+parseFloat($('input[name=amount]').val())+'</span>');
+            $('span.starsRating').stars();
+        });
+        $('input[type=submit]').click();
     });
-
-
-
-
-
-//    $(function() {
-//        $('input[type=submit]').click(function() {
-//            $('p.star_container').html('<span class="starsRating">'+parseFloat($('input[name=amount]').val())+'</span>');
-//            $('span.starsRating').stars();
-//        });
-//        $('input[type=submit]').click();
-//    });
 
     $.fn.stars = function() {
         return $(this).each(function() {

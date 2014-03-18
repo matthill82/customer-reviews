@@ -3,7 +3,7 @@
 // star rating custom directive
 reviewsApp.directive('starRating', function(){
 	return {
-		restrict: 'E',
+		restrict: 'A',
 		link: function(scope){
 			scope.click = function(starRating) {
 				scope.starRating = starRating;
@@ -37,4 +37,31 @@ reviewsApp.directive('showRating', function($animate) {
 		})
 	}
 });
+
+reviewsApp.directive('animate', function() {
+    return {
+        require: '?ngModel',
+        link: function(scope, element, attrs, ngModel) {
+            if (!ngModel) return;
+            ngModel.$render = function() {
+                element.html(
+                    ngModel.$viewValue() || 'None'
+                );
+            }
+        }
+    };
+});
+
+//reviewsApp.directive('animate', function() {
+//    return {
+//        restrict: 'E',
+//        link: function (scope, attrs, elem) {
+//            var amount = attrs.value;
+//
+//            attrs.$observe('value', function (value) {
+//                var data = value;
+//            })
+//        }
+//    }
+//});
 

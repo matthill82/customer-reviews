@@ -482,15 +482,15 @@ ul li {
 
 .review {
     border-bottom: 1px solid rgba(0,0,0, 0.2);
-    padding-bottom: 1em;
+    padding: 1em 0;
 }
 
 /*-----  End of Star rating styling  ------*/
 
 span.starsRating, span.starsRating span {
     display: block;
-    background: url(../img/Five-pointed_star_blue.svg) 0 -49px repeat-x;
-    width: 246px;
+    background: url(../img/stars_ford.png) 0 -49px repeat-x;
+    width: 230px;
     height: 48px;
 }
 
