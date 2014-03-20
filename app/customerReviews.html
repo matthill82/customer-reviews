@@ -20,12 +20,13 @@
             </div>
             <!--RatingsController-->
             <div ng-controller="RatingsController" class="model_stars col span-6">
-                <input animate ng-model="" type="hidden" name="amount" ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" value="{{event.data.surveySummaryRecords.CumulativeAvg}}">
-                <input type="submit" value="update" class="hide">
-                <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span style="width:{{event.data.surveySummaryRecords.CumulativeAvg}}px;"></span></span></p>
-                <div class="ave_rating">
-                    <p>{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
-                    <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
+                <div data-ng-controller="starsController">
+                    <!-- this is the template for the star ratings -->
+                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth" ng-class="{in:event}"></span></span></p>
+                    <div class="ave_rating">
+                        <p>{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
+                        <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
+                    </div>
                 </div>
             </div>
             <!--end RatingsController-->
@@ -95,7 +96,7 @@
 <script src="js/controllers/RatingsController.js"></script>
 <script src="js/controllers/ReviewsController.js"></script>
 <script src="js/controllers/SortController.js"></script>
-<script src="js/controllers/AnimateController.js"></script>
+<script src="js/controllers/starsController.js"></script>
 <script src="js/services/ReviewsData.js"></script>
 <script src="js/services/RatingsData.js"></script>
 <script src="js/services/SortData.js"></script>

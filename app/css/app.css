@@ -498,6 +498,18 @@ span.starsRating span {
     background-position: 0 0;
 }
 
+.fade {
+    opacity: 0;
+    -webkit-transition: opacity 0.25s ease-in;
+    -moz-transition: opacity 0.25s ease-in;
+    -o-transition: opacity 0.25s ease-in;
+    -ms-transition: opacity 0.25s ease-in;
+    transition: opacity 0.25s ease-in;
+}
+.fade.in{
+    opacity: 1;
+}
+
 .ave_rating{
     text-align: right;
 }

@@ -4,17 +4,10 @@ reviewsApp.controller('RatingsController',
 	function RatingsController ($scope, ratingData) {
 		$scope.sortorder = 'name';
 		ratingData.getRatings(function (event) {
-            if(event.length){
+            if(event){
                 $scope.event = event;
+	            $scope.rating = event.data
             }
 		});
 	}
 );
-
-//reviewsApp.controller('ServiceController',
-//    function($scope, reviewsService) {
-//// We can call the events function
-//// on the object
-//        $scope.events =
-//            reviewsService.events('auser');
-//    });
