@@ -22,9 +22,9 @@
             <div ng-controller="RatingsController" class="model_stars col span-6">
                 <div data-ng-controller="starsController">
                     <!-- this is the template for the star ratings -->
-                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ng-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth" ng-class="{in:event}"></span></span></p>
+                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth" ng-class="{in:event}"></span></span></p>
                     <div class="ave_rating">
-                        <p>{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
+                        <p class="valueStar" ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}">{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
                         <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
                     </div>
                 </div>
@@ -35,17 +35,12 @@
             <label for="sortOptions" class="pull-left">Sort</label>
             <div class="custom-select">
                 <span class="selector icon-arrow-down"></span>
-                <select id="sortOptions" name="sortOrder">
-                    <option value="{{event.sortby}}" ng-repeat="sortb in event.sortby">{{event.sortby}}</option>
-                    <option selected="" value="recent"> Most recent </option>
-                    <option value="oldest"> Oldest </option>
-                    <option value="lowest"> Lowest score </option>
-                    <option value="highest"> Highest </option>
+                <select id="sortOptions" ng-model="sortOptions.options" ng-options="item.name for item in sortOptions.options">
                 </select>
             </div>
         </div>
         <div id="reviews_container" ng-controller="ReviewsController" class="module">
-            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords | orderBy : 'UserOverallRating' | limitTo:10"class="module review">
+            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter:customFilter"class="module review">
                 <div class="labels">
                     <ul class="group span-5">
                         <li ng-repeat="star in reviews.stars" class="rating">
@@ -62,21 +57,21 @@
                 <div class="model_stars span-12 clearfix">
                     <input type="hidden" name="amount" value="{{modelRecord.UserOverallRating}}">
                     <input type="submit" value="update" class="hide">
-                    <p class="star_container--reviews reviews_stars"><span class="starsRating"><span></span></span></p>
+                    <p class="star_container--reviews reviews_stars"><span class="starsRating"><span></span>{{modelRecord.UserOverallRating}}</span></p>
                 </div>
                 <div class="review_comments span-12">
                     <p>{{modelRecord.UserComments}}</p>
                 </div>
             </div>
         </div>
-        <div class="module container disclaimer">
+        <div data-ng-controller="MessageController" class="module container disclaimer">
             <div class="row group">
                 <div class="large-12 columns">
                     <div class="large-8 centered__content container">
                         <p class="text-center">Showing 10 of X customer reviews</p>
                     </div>
                     <div class="large-4 centered__content">
-                        <input type="button" value="READ MORE REVIEWS" ng-click="revealMore();" class="custom-button blue" />
+                        <input type="button" value="READ MORE REVIEWS" ng-click="clickFocus()"  class="custom-button blue" />
                     </div>
                 </div>
             </div>

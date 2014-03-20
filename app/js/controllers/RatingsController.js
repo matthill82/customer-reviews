@@ -6,7 +6,6 @@ reviewsApp.controller('RatingsController',
 		ratingData.getRatings(function (event) {
             if(event){
                 $scope.event = event;
-	            $scope.rating = event.data
             }
 		});
 	}

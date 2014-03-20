@@ -17,3 +17,15 @@ reviewsApp.directive('ngStars', function() {
 	}
 });
 
+reviewsApp.directive('ngbkFocus', function() {
+	return {
+		restrict : 'A',
+		link : function(scope, element, attrs, controller) {
+			scope.$watch(attrs.value, function(value) {
+				element.text(value);
+				element[0].focus();
+			});
+		}
+	};
+});
+

@@ -2,8 +2,6 @@
 
 reviewsApp.controller('starsController',
 	function starsController ($scope) {
-		$scope.rating = 'rating';
-		$scope.value = 'value';
 
 		$scope.stars = function() {
 			return angular.element(this).each(function() {
@@ -18,3 +16,14 @@ reviewsApp.controller('starsController',
 		}
 	}
 );
+
+function MessageController($scope) {
+	$scope.message = { text : 'you clicked me' };
+
+	$scope.clickFocus = function() {
+		$scope.message.text = 'clicked again!!!';
+	}
+	$scope.clickUnFocus = function() {
+		$scope.message.text = 'nope you did not clicked again!!!';
+	}
+}
