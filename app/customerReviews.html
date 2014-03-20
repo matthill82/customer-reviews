@@ -31,16 +31,16 @@
             </div>
             <!--end RatingsController-->
         </div>
-        <div ng-controller="SortController" class="sort clearfix">
-            <label for="sortOptions" class="pull-left">Sort</label>
-            <div class="custom-select">
-                <span class="selector icon-arrow-down"></span>
-                <select id="sortOptions" ng-model="sortOptions.options" ng-options="item.name for item in sortOptions.options">
-                </select>
+
+        <div id="reviews_container" data-ng-controller="ReviewsController" class="module">
+            <div ng-controller="SortController" class="sort clearfix">
+                <label for="sortOptions" class="pull-left">Sort</label>
+                <div class="custom-select">
+                    <span class="selector icon-arrow-down"></span>
+                    <select id="sortOptions" data-ng-model="filterItem.store" data-ng-options="modelRecord.name for modelRecord in filterOptions.stores"></select>
+                </div>
             </div>
-        </div>
-        <div id="reviews_container" ng-controller="ReviewsController" class="module">
-            <div ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter:customFilter"class="module review">
+            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter: customFilter" class="module review">
                 <div class="labels">
                     <ul class="group span-5">
                         <li ng-repeat="star in reviews.stars" class="rating">
@@ -71,7 +71,7 @@
                         <p class="text-center">Showing 10 of X customer reviews</p>
                     </div>
                     <div class="large-4 centered__content">
-                        <input type="button" value="READ MORE REVIEWS" ng-click="clickFocus()"  class="custom-button blue" />
+                        <input type="button" value="READ MORE REVIEWS" class="custom-button blue" />
                     </div>
                 </div>
             </div>
