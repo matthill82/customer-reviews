@@ -24,7 +24,7 @@ reviewsApp.directive('ngbkFocus', function($timeout) {
 			$timeout(function() {
 				scope.$watch(attrs.value, function(value) {
 					var testVal = $('.valueStar').data('value');
-					console.log(testVal, element);
+//					console.log(testVal, element);
 					$('p.star_container').html('<span class="starsRating">'+parseFloat(testVal)+'</span>');
 					$('span.starsRating').stars();
 
@@ -38,5 +38,18 @@ reviewsApp.directive('ngbkFocus', function($timeout) {
 			}, 1000);
 		}
 	};
+});
+
+reviewsApp.directive('clickMe', function($scope) {
+	return {
+		restrict : 'AE',
+		priority : 100,
+		link : function(scope, element, attr) {
+			element.bind('click', function() {
+				alert('clicked mo-foooooo');
+				console.log(element);
+			})
+		}
+	}
 });
 
