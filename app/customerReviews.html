@@ -1,11 +1,12 @@
 <!doctype html>
-<html lang="en" ng-app="reviewsApp">
+<html lang="en" data-ng-app="reviewsApp">
 <head>
     <meta charset="utf-8">
     <title>Customer Reviews</title>
     <link rel="stylesheet" href="css/normalize.css"/>
     <link rel="stylesheet" href="css/foundation.css"/>
     <link rel="stylesheet" href="css/app.css"/>
+    <link rel="stylesheet" href="css/reviews-animations.css"/>
 </head>
 <body>
 <div class="row">
@@ -19,10 +20,10 @@
                 <h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
             </div>
             <!--RatingsController-->
-            <div ng-controller="RatingsController" class="model_stars col span-6">
+            <div data-ng-controller="RatingsController" class="model_stars col span-6">
                 <div data-ng-controller="starsController">
                     <!-- this is the template for the star ratings -->
-                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth" ng-class="{in:event}"></span></span></p>
+                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth my-repeat-animation" ng-class="{in:event}"></span></span></p>
                     <div class="ave_rating">
                         <p class="valueStar" ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}">{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
                         <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
@@ -33,20 +34,17 @@
         </div>
 
         <div id="reviews_container" data-ng-controller="ReviewsController" class="module">
-            <div ng-controller="SortController" class="sort clearfix">
+            <div data-ng-controller="SortController" class="sort clearfix">
                 <label for="sortOptions" class="pull-left">Sort</label>
                 <div class="custom-select">
                     <span class="selector icon-arrow-down"></span>
-                    <select id="sortOptions" data-ng-model="filterItem.store" data-ng-options="modelRecord.name for modelRecord in filterOptions.stores"></select>
+                    <select id="sortOptions" data-ng-model="filterItem.store" data-ng-options="modelRecord.name for modelRecord in filterOptions.stores | filter: reviews"></select>
                 </div>
             </div>
-            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter: customFilter" class="module review">
+            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter: customFilter" class="module review my-repeat-animation">
                 <div class="labels">
                     <ul class="group span-5">
-                        <li ng-repeat="star in reviews.stars" class="rating">
-                        <input type="radio" id="" name="" value="" /><label for="" title="">1 star</label>
-                        </li>
-                        <li class="col">{{modelRecord.UserName}}</li>
+                        <li class="col">{{modelRecord.UserName | uppercase}}</li>
                         <li class="col">{{modelRecord.UserLocation}}</li>
                         <li class="col">{{modelRecord.ReviewdateTimestamp | limitTo: 10 | date:'MMM d, y'}}</li>
                     </ul>

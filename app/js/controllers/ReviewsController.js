@@ -6,17 +6,18 @@ reviewsApp.controller('ReviewsController',
 		reviewData.getReviews(function (event) {
 			$scope.event = event;
 		});
-//        $scope.sortorder = 'UserOverallRating';
 
-        //Contains the sorting options
-        $scope.sortOptions = {
-            stores : [
-                { id : 1, sortBy : 'Most Recent', UserOverallRating : 1 },
-                { id : 2, sortBy : 'Oldest', UserOverallRating:2 },
-                { id : 3, sortBy : 'Lowest Score', UserOverallRating:3 },
-                { id : 4, sortBy : 'Highest', UserOverallRating:4 }
-            ]
-        }
+		$scope.sortorder = 'UserOverallRating';
+
+//        //Contains the sorting options
+//        $scope.sortOptions = {
+//            stores : [
+//                { id : 1, sortBy : 'Most Recent', UserOverallRating : 1 },
+//                { id : 2, sortBy : 'Oldest', UserOverallRating:2 },
+//                { id : 3, sortBy : 'Lowest Score', UserOverallRating:3 },
+//                { id : 4, sortBy : 'Highest', UserOverallRating:4 }
+//            ]
+//        }
 
         //Contains the filter options
         $scope.filterOptions = {
@@ -35,10 +36,10 @@ reviewsApp.controller('ReviewsController',
             store: $scope.filterOptions.stores[0]
         }
 
-        //Mapped to the model to sort
-        $scope.sortItem = {
-            store: $scope.sortOptions.stores[0]
-        };
+//        //Mapped to the model to sort
+//        $scope.sortItem = {
+//            store: $scope.sortOptions.stores[0]
+//        };
 
         //Custom filter - filter based on the UserOverallRating selected
         $scope.customFilter = function (data) {
@@ -52,3 +53,15 @@ reviewsApp.controller('ReviewsController',
         };
 	}
 );
+
+
+reviewsApp.filter('reviews', function() {
+	return function(review) {
+		switch (review) {
+			case 'Show All' :
+				return "Show All";
+			case 'Most Recent' :
+				return "Most Recent"
+		}
+	};
+});
