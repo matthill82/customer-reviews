@@ -23,9 +23,9 @@
             <div data-ng-controller="RatingsController" class="model_stars col span-6">
                 <div data-ng-controller="starsController">
                     <!-- this is the template for the star ratings -->
-                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade starWidth my-repeat-animation" ng-class="{in:event}"></span></span></p>
+                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span data-ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade my-repeat-animation""></span></span></p>
                     <div class="ave_rating">
-                        <p class="valueStar" ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}">{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
+                        <p class="valueStar" data-ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}">{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
                         <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
                     </div>
                 </div>
@@ -34,14 +34,20 @@
         </div>
 
         <div id="reviews_container" data-ng-controller="ReviewsController" class="module">
-            <div data-ng-controller="SortController" class="sort clearfix">
+            <div class="sort clearfix">
                 <label for="sortOptions" class="pull-left">Sort</label>
                 <div class="custom-select">
                     <span class="selector icon-arrow-down"></span>
-                    <select id="sortOptions" data-ng-model="filterItem.store" data-ng-options="modelRecord.name for modelRecord in filterOptions.stores | filter: reviews"></select>
+                    <select id="sortOptions" data-ng-model="myOrder">
+                        <option value="" selected="selected">Show All</option>
+                        <option value="ReviewdateTimestamp">Most Recent</option>
+                        <option value="UserName">Oldest</option>
+                        <option value="UserOverallRating">Lowest Rating</option>
+                        <option value="'UserOverallRating'; reverse=!reverse">Highest Rating</option>
+                    </select>
                 </div>
             </div>
-            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | filter: customFilter" class="module review my-repeat-animation">
+            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | orderBy: myOrder:reverse" class="module review my-repeat-animation">
                 <div class="labels">
                     <ul class="group span-5">
                         <li class="col">{{modelRecord.UserName | uppercase}}</li>
@@ -106,7 +112,7 @@
 
     $.fn.stars = function() {
         return $(this).each(function() {
-            $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 60)); /* 49 is the width of the stars image */
+            $(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).val())))) * 49)); /* 49 is the width of the stars image */
         });
     }
 </script>

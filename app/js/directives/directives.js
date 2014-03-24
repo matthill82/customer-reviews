@@ -1,30 +1,41 @@
 'use strict';
+//
+//reviewsApp.directive('ngStars', function() {
+//	return {
+//		restrict : 'AE',
+//		scope : {
+//			text : '@myText'
+//		},
+//		link : function(scope, element, attrs, rating) {
+//			scope.$watch('value', function(newVal) {
+//				if(!newVal) {
+//					scope.setWidth();
+//				}
+//			}, true);
+//			console.log(element);
+//		}
+//	}
+//});
 
-reviewsApp.directive('ngStars', function() {
-	return {
-		restrict : 'AE',
-		scope : {
-			text : '@myText'
-		},
-		link : function(scope, element, attrs, rating) {
-			scope.$watch('value', function(newVal) {
-				if(!newVal) {
-					scope.setWidth();
-				}
-			}, true);
-			console.log(element);
-		}
-	}
-});
-
-reviewsApp.directive('ngbkFocus', function() {
+reviewsApp.directive('ngbkFocus', function($timeout) {
 	return {
 		restrict : 'A',
 		link : function(scope, element, attrs, controller) {
-			scope.$watch(attrs.value, function(value) {
-				element.text(value);
-				element[0].focus();
-			});
+			$timeout(function() {
+				scope.$watch(attrs.value, function(value) {
+					var testVal = $('.valueStar').data('value');
+					console.log(testVal, element);
+					$('p.star_container').html('<span class="starsRating">'+parseFloat(testVal)+'</span>');
+					$('span.starsRating').stars();
+
+					$.fn.stars = function() {
+						return $(this).each(function() {
+							$(this).html($('<span />').width(Math.max(0, (Math.min(5, parseFloat($(this).html())))) * 47));
+						});
+					}
+
+				});
+			}, 1000);
 		}
 	};
 });
