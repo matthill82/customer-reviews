@@ -1,7 +1,7 @@
 /**
  * Created by mhill168 on 21/03/2014.
  */
-reviewsApp.animation('.my-switch-animation', function() {
+ngReviews.animation('.my-switch-animation', function() {
 	return {
 		enter : function(element, done) {
 			element = jQuery(element);

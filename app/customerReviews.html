@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-ng-app="reviewsApp">
+<html lang="en" data-ng-app="ngReviews">
 <head>
     <meta charset="utf-8">
     <title>Customer Reviews</title>
@@ -14,16 +14,18 @@
     <section class="cust_reviews-container">
         <header class="reviews_heading-container">
             <h2 class="reviews_heading">Customer Reviews</h2>
+            <!-- set a on/off flag-->
+            <p class="introtext setFlag">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi aperiam corporis deleniti dolor doloribus eius harum ipsa magni minus molestias nisi praesentium rerum sed, soluta suscipit totam vel voluptates voluptatum!</p>
         </header>
         <div class="model_and-ratings group">
             <div class="model_title col span-6">
-                <h3 class="reviews_sub-heading">Ford <span class="strong"> Fiesta </span></h3>
+                <h3 class="reviews_sub-heading"><span class="strong">Fiesta</span></h3>
             </div>
             <!--RatingsController-->
             <div data-ng-controller="RatingsController" class="model_stars col span-6">
                 <div data-ng-controller="starsController">
                     <!-- this is the template for the star ratings -->
-                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span data-ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade my-repeat-animation""></span></span></p>
+                    <p class="star_container pull-right clearfix"><span class="starsRating pull-right"><span data-ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}" class="fade my-repeat-animation" data-ng-class="{in:event}"></span></span></p>
                     <div class="ave_rating">
                         <p class="valueStar" data-ngbk-focus data-value="{{event.data.surveySummaryRecords.CumulativeAvg}}">{{event.data.surveySummaryRecords.CumulativeAvg}} Average customer rating</p>
                         <p>{{event.data.surveySummaryRecords.CumCustomersReceivedCount}} reviews</p>
@@ -39,7 +41,7 @@
                 <div class="custom-select">
                     <span class="selector icon-arrow-down"></span>
                     <select id="sortOptions" data-ng-model="myOrder">
-                        <option value="" selected="selected">Show All</option>
+                        <!--<option value="" selected="selected">Show All</option>-->
                         <option value="ReviewdateTimestamp">Most Recent</option>
                         <option value="UserName">Oldest</option>
                         <option value="UserOverallRating">Lowest Rating</option>
@@ -47,35 +49,34 @@
                     </select>
                 </div>
             </div>
-            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo:10 | orderBy: myOrder:reverse" class="module review my-repeat-animation">
+            <div data-ng-repeat="modelRecord in event.FOCUS13.ModelRecords | limitTo : pageSize | orderBy: myOrder" class="module review my-repeat-animation">
                 <div class="labels">
                     <ul class="group span-5">
                         <li class="col">{{modelRecord.UserName | uppercase}}</li>
                         <li class="col">{{modelRecord.UserLocation}}</li>
-                        <li class="col">{{modelRecord.ReviewdateTimestamp | limitTo: 10 | date:'MMM d, y'}}</li>
                     </ul>
+                    <p class="">Reviewed on: {{modelRecord.ReviewdateTimestamp | limitTo: 10 | date:'MMM d, y'}}</p>
                 </div>
                 <div class="car_details">
                     <p><span>Driving : </span> {{modelRecord.Model}}</p>
                 </div>
                 <div class="model_stars span-12 clearfix">
                     <input type="hidden" name="amount" value="{{modelRecord.UserOverallRating}}">
-                    <input type="submit" value="update" class="hide">
                     <p class="star_container--reviews reviews_stars"><span class="starsRating"><span></span>{{modelRecord.UserOverallRating}}</span></p>
                 </div>
+                <div data-ng-if=""></div>
                 <div class="review_comments span-12">
                     <p>{{modelRecord.UserComments}}</p>
                 </div>
             </div>
         </div>
-        <div data-ng-controller="MessageController" class="module container disclaimer">
+        <div class="module container pagination">
             <div class="row group">
                 <div class="large-12 columns">
-                    <div class="large-8 centered__content container">
-                        <p class="text-center">Showing 10 of X customer reviews</p>
-                    </div>
-                    <div class="large-4 centered__content">
-                        <input type="button" data-ng-click="saySomething()" data-clickme value="READ MORE REVIEWS" class="custom-button blue" />
+                    <div class="large-8 centered__content container pagination">
+                        <span class="span-3 inline-list"><input type="button" value="Previous" class="custom-button blue" ng-disabled="currentPage == 0" ng-click="currentPage=currentPage-1" /></span>
+                            {{currentPage+1}}/{{numberOfPages()}}
+                        <span class="span-3 inline-list"><input type="button" value="Next" class="custom-button blue" ng-disabled="currentPage >= data.length/pageSize - 1" ng-click="currentPage=currentPage+1" /></span>
                     </div>
                 </div>
             </div>
@@ -91,6 +92,7 @@
 <script src="lib/angular/angular.js"></script>
 <script src="lib/angular/angular-route.js"></script>
 <script src="lib/angular/angular-animate.min.js"></script>
+<script src="js/simplePagination.js"></script>
 <script src="js/app.js"></script>
 <script src="js/controllers/RatingsController.js"></script>
 <script src="js/controllers/ReviewsController.js"></script>

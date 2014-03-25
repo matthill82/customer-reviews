@@ -1,6 +1,6 @@
 'use strict';
 //
-//reviewsApp.directive('ngStars', function() {
+//ngReviews.directive('ngStars', function() {
 //	return {
 //		restrict : 'AE',
 //		scope : {
@@ -17,7 +17,7 @@
 //	}
 //});
 
-reviewsApp.directive('ngbkFocus', function($timeout) {
+ngReviews.directive('ngbkFocus', function($timeout) {
 	return {
 		restrict : 'A',
 		link : function(scope, element, attrs, controller) {
@@ -40,7 +40,7 @@ reviewsApp.directive('ngbkFocus', function($timeout) {
 	};
 });
 
-reviewsApp.directive('clickMe', function($scope) {
+ngReviews.directive('clickMe', function($scope) {
 	return {
 		restrict : 'AE',
 		priority : 100,

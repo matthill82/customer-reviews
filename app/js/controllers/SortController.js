@@ -1,6 +1,6 @@
 'use strict';
 
-reviewsApp.controller('SortController', function($scope, reviewData) {
+ngReviews.controller('SortController', function($scope, reviewData) {
 
 
 });

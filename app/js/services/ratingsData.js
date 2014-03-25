@@ -1,5 +1,5 @@
 // ratings service
-reviewsApp.factory('ratingData', function ($http) {
+ngReviews.factory('ratingData', function ($http) {
 	return {
 		getRatings : function (successcb) {
 			$http({method : 'GET', url : 'json/RatingsData.json' }).
@@ -14,7 +14,7 @@ reviewsApp.factory('ratingData', function ($http) {
 });
 
 // this will be the live service
-//reviewsApp.factory('reviewsService', function($http) {
+//ngReviews.factory('reviewsService', function($http) {
 //        var rrpbUrl = '';
 //        var runrRequest = function(username, path) {
 //// Return the promise from the $http service

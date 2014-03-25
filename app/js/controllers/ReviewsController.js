@@ -1,17 +1,32 @@
 'use strict';
 
-reviewsApp.controller('ReviewsController',
+ngReviews.controller('ReviewsController', ['$scope', 'reviewData',
 	function RatingsController ($scope, reviewData) {
 
+		$scope.myOrder = 'ReviewdateTimestamp';
+
+		$scope.currentPage = 0;
+		$scope.pageSize = 10;
+		$scope.data = [];
+		$scope.numberOfPages = function() {
+			return Math.ceil($scope.reviewData.length/$scope.pageSize);
+		};
+
 		reviewData.getReviews(function (event) {
-			$scope.event = event;
+			if(event) {
+				$scope.event = event;
+//				$scope.pagination = Pagination.getNew(10);
+//				$scope.pagination.numPages = Math.ceil($scope.event.length/$scope.pagination.perPage);
+
+//				angular.forEach($scope.event, function(i,v) {
+//					var reviews = i.ModelRecords,
+//						reviewLength = reviews.length;
+//					console.log(reviewLength);
+//				});
+
+			}
 		});
 
-		$scope.myOrder = '-UserOverallRating';
-
-			angular.forEach($scope.event, function(i,v){
-		        console.log($scope.event.FOCUS13.ModelRecords.length);
-	        });
 
 ////		$scope.sortorder = 'UserOverallRating';
 //		$scope.dateTimeStamp = 'ReviewdateTimestamp';
@@ -41,4 +56,4 @@ reviewsApp.controller('ReviewsController',
 //	}
 
 
-	});
+	}]);

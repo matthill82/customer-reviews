@@ -1,6 +1,6 @@
 'use strict';
 
-reviewsApp.controller('starsController',
+ngReviews.controller('starsController',
 	function starsController ($scope) {
 
 		$scope.stars = function() {

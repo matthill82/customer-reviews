@@ -1,13 +1,11 @@
 'use strict';
 
-reviewsApp.filter('reviews', function() {
-	return function(reviews) {
-		switch (reviews) {
-			case 'Show All' :
-				return "Show All";
-			case 'Most Recent' :
-				return "Most Recent"
-
-		}
+//We already have a limitTo filter built-in to angular,
+//let's make a startFrom filter
+ngReviews.filter('startFrom', function() {
+	return function(input, start) {
+		console.log(input, start);
+		start = +start; //parse to int
+		return input.slice(start);
 	}
-})
+});

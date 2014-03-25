@@ -1,4 +1,4 @@
-reviewsApp.factory('sortData', function ($http) {
+ngReviews.factory('sortData', function ($http) {
 	return {
 		getSort : function (successcb) {
 			$http({method : 'GET', url : 'json/SortData.json' }).
