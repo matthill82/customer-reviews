@@ -84,6 +84,9 @@
 .pagination .compared .custom-button.blue:hover {
     background-color: #666;
 }
+input[disabled] {
+    opacity: 0.5;
+}
 
 /* line 17, ../../sass/about.scss */
 .pagination .custom-button.white {
@@ -623,4 +626,42 @@ span.starsRating span {
 
 .container.centered__content, .centered__content {
     margin: 0 auto;
+}
+
+/* reply back styling */
+.reply {
+    width: 90%;
+    margin: 0 1em 0 auto;
+    background-color: rgba(0,0,0,0.2);
+    padding: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.reply .reply_labels {
+    padding-bottom: 1em;
+}
+
+.reply .reply_details{
+    width: 20%;
+}
+
+.reply .reply_faithfully, .reply .reply_details{
+    margin: 0.5em 0;
+}
+
+.reply .reply_faithfully li{
+    margin-bottom: 1em;
+}
+
+.reply h1{
+    font-size: 1.25em;
+}
+
+.reply .reply_contact--details {
+    /*line-height: 1.4;*/
+}
+
+.reply .reply_contact--details .list_header{
+
 }
